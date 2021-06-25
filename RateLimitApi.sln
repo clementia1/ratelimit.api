@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6D8B45A6-206A-4A0D-AEB9-D777E4CA9D54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C5F5F145-A9C6-4A56-B380-FBDE2E75F324}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{5764EB1E-2387-42CA-84F3-D9DB6BCA7FF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimitApi", "src\RateLimitApi\RateLimitApi.csproj", "{825E8A8F-F839-4915-89A2-ED407B4F231F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimitApi.Service", "services\RateLimitApi.Service\RateLimitApi.Service.csproj", "{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B39A86E-5EDE-406F-8791-28A824BD5766}"
+ProjectSection(SolutionItems) = preProject
+	Dockerfile = Dockerfile
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{825E8A8F-F839-4915-89A2-ED407B4F231F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{825E8A8F-F839-4915-89A2-ED407B4F231F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{825E8A8F-F839-4915-89A2-ED407B4F231F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{825E8A8F-F839-4915-89A2-ED407B4F231F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{825E8A8F-F839-4915-89A2-ED407B4F231F} = {6D8B45A6-206A-4A0D-AEB9-D777E4CA9D54}
+		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45} = {5764EB1E-2387-42CA-84F3-D9DB6BCA7FF9}
+	EndGlobalSection
+EndGlobal
