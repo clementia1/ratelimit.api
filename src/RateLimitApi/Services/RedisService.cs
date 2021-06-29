@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.Extensions.Options;
 using RateLimitApi.Configuration;
+using RateLimitApi.Services.Abstractions;
 using StackExchange.Redis;
 
 namespace RateLimitApi.Services
 {
-    public class RedisService : IDisposable
+    public class RedisService : IRedisService, IDisposable
     {
         private readonly Lazy<ConnectionMultiplexer> _connectionLazy;
         private bool _disposed;

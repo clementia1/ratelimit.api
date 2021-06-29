@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RateLimitApi.Configuration;
+using RateLimitApi.Models;
+using RateLimitApi.Services;
 
 namespace RateLimitController.Controllers
 {
@@ -10,6 +12,7 @@ namespace RateLimitController.Controllers
     [Route("api/v1/[controller]/[action]")]
     public class RateLimitController : ControllerBase
     {
+        private readonly RateLimitService _rateLimitService;
         private readonly ILogger<RateLimitController> _logger;
         private readonly Config _config;
 
@@ -22,8 +25,9 @@ namespace RateLimitController.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CheckLimit(string userKey)
+        public async Task<IActionResult> CheckLimit(CheckRateLimitRequest request)
         {
+            
         }
     }
 }

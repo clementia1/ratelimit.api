@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RateLimitApi.Configuration;
+using RateLimitApi.Services;
+using RateLimitApi.Services.Abstractions;
 
 namespace RateLimitApi
 {
@@ -33,6 +35,7 @@ namespace RateLimitApi
             services.AddControllers();
 
             services.Configure<Config>(AppConfiguration);
+            services.AddTransient<IRedisService, RedisService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
