@@ -35,7 +35,7 @@ namespace RateLimitApi
             services.AddControllers();
 
             services.Configure<Config>(AppConfiguration);
-            services.AddTransient<IRedisService, RedisService>();
+            services.AddTransient<IRedisConnectionService, RedisConnectionService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
