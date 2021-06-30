@@ -30,7 +30,9 @@ namespace RateLimitController.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckLimit(CheckRateLimitRequest request)
         {
-            _rateLimitService.
+            Request.Headers.TryGetValue("Origin", out var requestOrigin);
+            var result = await _rateLimitService.CheckLimit(request.RemoteIp, request.RequestedUrl, requestOrigin);
+            return result ? Ok() : StatusCode(429);
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class CheckRateLimitRequest
     {
-        public string? RemoteIp { get; set; }
-        public string? RequestPath { get; set; }
+        public string RemoteIp { get; set; } = null!;
+        public string RequestedUrl { get; set; } = null!;
     }
 }

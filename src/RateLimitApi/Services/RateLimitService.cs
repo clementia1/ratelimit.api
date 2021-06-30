@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
+using RateLimitApi.Configuration;
 using RateLimitApi.Data.Cache;
 using RateLimitApi.Services.Abstractions;
 
@@ -6,31 +8,35 @@ namespace RateLimitApi.Services
 {
     public class RateLimitService
     {
-        private readonly ICacheService<PizzaCacheEntity> _cacheService;
+        private readonly IRedisStoreService _redisStoreService;
+        private readonly Config _config;
 
-        public RateLimitService(ICacheService<PizzaCacheEntity> cacheService)
+        public RateLimitService(
+            IRedisStoreService redisStoreService,
+            IOptions<Config> config)
         {
-            _cacheService = cacheService;
+            _redisStoreService = redisStoreService;
+            _config = config.Value;
         }
         
         public async Task<bool> CheckLimit(string clientIp, string requestedUrl, string requestOrigin)
         {
-            var userKey = GetUserKey(clientIp, requestedUrl, requestOrigin);
-            var userRateLimit = _cacheService.GetAsync(userKey);
-            await _cacheService.AddOrUpdateAsync(new ClientCacheEntity()
+            var clientKey = GetClientKey(clientIp, requestedUrl, requestOrigin);
+            var keyExists = await _redisStoreService.Exists(clientKey);
+
+            if (keyExists)
             {
-                ClientIp = clientIp,
-                RequestedUrl = requestedUrl,
-                RequestOrigin = requestOrigin
-            }, "userName");
+                var keyValue = await _redisStoreService.Increment(clientKey);
+                return !(keyValue > _config.IpRateLimiting.Limit);
+            }
+            else
+            {
+                await _redisStoreService.Add(clientKey);
+                return true;
+            }
         }
 
-        public async Task AddItem(string clientIp, string requestedUrl, string requestOrigin)
-        {
-            
-        }
-
-        private string GetUserKey(string clientIp, string requestedUrl, string requestOrigin)
+        private string GetClientKey(string clientIp, string requestedUrl, string requestOrigin)
         {
             return $"{requestOrigin}_{clientIp}_{requestedUrl}";
         }
