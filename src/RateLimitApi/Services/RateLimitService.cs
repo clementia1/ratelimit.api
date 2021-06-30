@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using RateLimitApi.Configuration;
-using RateLimitApi.Data.Cache;
 using RateLimitApi.Services.Abstractions;
 
 namespace RateLimitApi.Services
