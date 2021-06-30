@@ -33,8 +33,13 @@ namespace RateLimitApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                    { Title = "RateLimitApi", Version = "v1" });
+            });
             services.Configure<Config>(AppConfiguration);
+            services.AddTransient<IRateLimitService, RateLimitService>();
             services.AddTransient<IRedisConnectionService, RedisConnectionService>();
             services.AddTransient<IRedisStoreService, RedisStoreService>();
         }
@@ -43,6 +48,16 @@ namespace RateLimitApi
         {
 
             app.UseRouting();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                    c.SwaggerEndpoint(
+                        "/swagger/v1/swagger.json",
+                        "RateLimitApi v1"));
+            }
+            
             app.UseEndpoints(builder => builder.MapDefaultControllerRoute());
         }
     }

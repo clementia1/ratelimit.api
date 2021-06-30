@@ -5,7 +5,7 @@ using RateLimitApi.Services.Abstractions;
 
 namespace RateLimitApi.Services
 {
-    public class RateLimitService
+    public class RateLimitService : IRateLimitService
     {
         private readonly IRedisStoreService _redisStoreService;
         private readonly Config _config;
