@@ -6,6 +6,5 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    environment:
     ports:
       - 5005:5000
