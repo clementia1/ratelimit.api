@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  ratelimit.service:
+    image: ratelimitservice
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+    ports:
+      - 5005:5000
