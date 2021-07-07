@@ -16,6 +16,8 @@ ProjectSection(SolutionItems) = preProject
 	docker-compose.yml = docker-compose.yml
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimitApi.UnitTests", "tests\RateLimitApi.UnitTests\RateLimitApi.UnitTests.csproj", "{7175C902-070C-4996-AB66-9B8E00CAEC95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,9 +32,14 @@ Global
 		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7175C902-070C-4996-AB66-9B8E00CAEC95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7175C902-070C-4996-AB66-9B8E00CAEC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7175C902-070C-4996-AB66-9B8E00CAEC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7175C902-070C-4996-AB66-9B8E00CAEC95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{825E8A8F-F839-4915-89A2-ED407B4F231F} = {6D8B45A6-206A-4A0D-AEB9-D777E4CA9D54}
 		{2BECA210-E86D-4F36-ADBF-D4796EA7FF45} = {5764EB1E-2387-42CA-84F3-D9DB6BCA7FF9}
+		{7175C902-070C-4996-AB66-9B8E00CAEC95} = {C5F5F145-A9C6-4A56-B380-FBDE2E75F324}
 	EndGlobalSection
 EndGlobal
